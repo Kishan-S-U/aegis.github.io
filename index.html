@@ -735,7 +735,7 @@
             border-radius: 1.5rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             width: 100%;
-            max-width: 32rem;
+            max-w-md: 32rem;
             height: auto;
             object-fit: cover;
         }
@@ -817,26 +817,24 @@
         }
 
         /* Icons for benefits section */
-        .icon-zap::before {
-            content: "⚡";
+        .icon-lock-open::before {
+            content: "🔓";
         }
 
-        .icon-shield::before {
-            content: "🛡️";
+        .icon-command::before {
+            content: "⌘";
         }
 
-        .icon-heart::before {
-            content: "💖";
+        .icon-shield-check::before {
+            content: "✔";
         }
     </style>
 </head>
 <body>
     <div class="min-h-screen">
-        <!-- Hero Section -->
         <section class="hero-section">
             <div class="max-w-7xl mx-auto w-full">
                 <div class="hero-grid">
-                    <!-- Text Content -->
                     <div class="hero-content order-2">
                         <div class="space-y-8">
                             <div class="space-y-6">
@@ -859,12 +857,11 @@
                         </div>
                     </div>
                     
-                    <!-- Hero Image -->
                     <div class="hero-image order-1 flex justify-center">
                         <div class="relative">
                             <div class="hero-image-bg"></div>
-                            <img src="https://images.unsplash.com/photo-1758598306174-78795a972fe1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0ZWNoJTIwZGV2aWNlJTIwaG9tZSUyMGxpdmluZyUyMHJvb218ZW58MXx8fHwxNzU5MzkwNjQxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
-                                 alt="Aegis personal digital server in modern living space" 
+                            <img src="assets/hero_image.png" 
+                                 alt="A custom-rendered Aegis device, a sleek, aspirational personal server." 
                                  class="hero-img">
                         </div>
                     </div>
@@ -872,43 +869,38 @@
             </div>
         </section>
 
-        <!-- Problem Section -->
         <section class="section">
             <div class="max-w-7xl mx-auto">
                 <div class="section-grid">
-                    <!-- Image -->
                     <div class="flex justify-center">
                         <div class="relative">
                             <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(239, 68, 68, 0.1), rgba(251, 146, 60, 0.1)); border-radius: 1.5rem; filter: blur(40px); transform: scale(1.1);"></div>
-                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwY2hhb3MlMjBzY2F0dGVyZWQlMjBkYXRhfGVufDF8fHx8MTc1OTM5MDY0MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
-                                 alt="Digital chaos and fragmented data visualization" 
+                            <img src="assets/problem_image.png" 
+                                 alt="An abstract graphic showing a tangled mess of disconnected lines and icons representing digital fragmentation." 
                                  class="relative rounded-3xl shadow-xl w-full max-w-lg h-auto object-cover">
                         </div>
                     </div>
                     
-                    <!-- Text Content -->
                     <div class="space-y-6">
                         <h2 class="section-title">
                             The Problem: Our Digital Lives are a Mess.
                         </h2>
                         <p class="section-text leading-relaxed">
-                            Your photos are scattered across multiple cloud services. Your files live in different silos. 
-                            Your smart home devices don't talk to each other. And you're paying monthly fees to companies 
-                            that profit from your data while leaving you vulnerable to breaches and privacy violations.
+                            Your photos are scattered across a dozen different services. Your files live in silos you can’t control. And you’re paying endless fees for something you never truly own.
                         </p>
                         
                         <div class="problem-icons">
                             <div class="problem-icon problem-icon-1">
                                 <div class="problem-emoji">📱</div>
-                                <p class="problem-text">Multiple Apps</p>
+                                <p class="problem-text">Endless Apps</p>
                             </div>
                             <div class="problem-icon problem-icon-2">
                                 <div class="problem-emoji">💸</div>
-                                <p class="problem-text">Monthly Fees</p>
+                                <p class="problem-text">Continuous Fees</p>
                             </div>
                             <div class="problem-icon problem-icon-3">
                                 <div class="problem-emoji">🔓</div>
-                                <p class="problem-text">Privacy Risks</p>
+                                <p class="problem-text">Lost Control</p>
                             </div>
                         </div>
                     </div>
@@ -916,47 +908,42 @@
             </div>
         </section>
 
-        <!-- Solution Section -->
         <section class="section section-bg">
             <div class="max-w-7xl mx-auto">
                 <div class="section-grid">
-                    <!-- Text Content -->
                     <div class="space-y-6">
                         <h2 class="section-title">
                             The Solution: A Single, Unified Home.
                         </h2>
                         <p class="section-text leading-relaxed">
-                            Aegis is your personal digital citadel. One beautiful device that centralizes all your photos, 
-                            files, smart home controls, and digital life. No more scattered subscriptions. No more privacy 
-                            concerns. Just complete control over your digital world.
+                            Aegis is your personal digital citadel. One beautiful device that centralizes all your photos, files, and smart home controls. No more scattered subscriptions. No more privacy concerns. Just complete control over your digital world.
                         </p>
                         
                         <div class="solution-features">
                             <div class="solution-feature solution-feature-1">
                                 <div class="feature-icon feature-icon-1">✓</div>
-                                <p>Centralized Storage</p>
+                                <p>All your data, in one place.</p>
                             </div>
                             <div class="solution-feature solution-feature-2">
                                 <div class="feature-icon feature-icon-2">✓</div>
-                                <p>Smart Home Hub</p>
+                                <p>Control your smart home privately.</p>
                             </div>
                             <div class="solution-feature solution-feature-3">
                                 <div class="feature-icon feature-icon-3">✓</div>
-                                <p>Privacy First</p>
+                                <p>Total privacy, with end-to-end encryption.</p>
                             </div>
                             <div class="solution-feature solution-feature-4">
                                 <div class="feature-icon feature-icon-4">✓</div>
-                                <p>No Monthly Fees</p>
+                                <p>A one-time investment, not a monthly fee.</p>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Image -->
                     <div class="flex justify-center">
                         <div class="relative">
                             <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(0, 102, 255, 0.2), rgba(30, 42, 74, 0.2)); border-radius: 1.5rem; filter: blur(40px); transform: scale(1.1);"></div>
-                            <img src="https://images.unsplash.com/photo-1689596312367-39a4461504c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbml6ZWQlMjBjbGVhbiUyMHRlY2hub2xvZ3klMjBzZXR1cHxlbnwxfHx8fDE3NTkzOTA2NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
-                                 alt="Clean, organized technology setup" 
+                            <img src="assets/solution_image.png" 
+                                 alt="A graphic showing the Aegis device at the center of a clean, organized web of connections to various devices." 
                                  class="relative rounded-3xl shadow-xl w-full max-w-lg h-auto object-cover">
                         </div>
                     </div>
@@ -964,7 +951,6 @@
             </div>
         </section>
 
-        <!-- Benefits Section -->
         <section class="section">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16">
@@ -979,18 +965,18 @@
                 <div class="benefits-grid">
                     <div class="benefit-card">
                         <div class="benefit-icon-container">
-                            <div class="benefit-icon benefit-icon-1 icon-zap"></div>
+                            <div class="benefit-icon benefit-icon-1 icon-lock-open"></div>
                             <div class="benefit-icon-bg benefit-icon-bg-1"></div>
                         </div>
                         <h3 class="benefit-title">Freedom</h3>
                         <p class="benefit-description leading-relaxed">
-                            Finally have unlimited storage for all your photos and videos.
+                            Finally have unlimited, private storage for all your photos and videos.
                         </p>
                     </div>
                     
                     <div class="benefit-card">
                         <div class="benefit-icon-container">
-                            <div class="benefit-icon benefit-icon-2 icon-shield"></div>
+                            <div class="benefit-icon benefit-icon-2 icon-command"></div>
                             <div class="benefit-icon-bg benefit-icon-bg-2"></div>
                         </div>
                         <h3 class="benefit-title">Control</h3>
@@ -1001,31 +987,28 @@
                     
                     <div class="benefit-card">
                         <div class="benefit-icon-container">
-                            <div class="benefit-icon benefit-icon-3 icon-heart"></div>
+                            <div class="benefit-icon benefit-icon-3 icon-shield-check"></div>
                             <div class="benefit-icon-bg benefit-icon-bg-3"></div>
                         </div>
                         <h3 class="benefit-title">Peace of Mind</h3>
                         <p class="benefit-description leading-relaxed">
-                            Know your memories are safe with automatic, encrypted backups.
+                            Know your memories are safe and secure with automatic, encrypted backups.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
         <section id="cta" class="section section-primary">
             <div class="max-w-7xl mx-auto">
                 <div class="section-grid">
-                    <!-- Text Content -->
                     <div class="space-y-8">
                         <div class="space-y-6">
                             <h2 class="section-title">
                                 Stop Paying to Rent Your Data.
                             </h2>
                             <p class="section-text section-text-light leading-relaxed">
-                                Join thousands of people who have taken control of their digital lives. 
-                                Own your data, protect your privacy, and never pay another cloud subscription again.
+                                Join the revolution and take control of your digital life. Own your data, protect your privacy, and never worry about a cloud subscription again.
                             </p>
                         </div>
                         
@@ -1038,27 +1021,12 @@
                             </a>
                         </div>
                         
-                        <div class="cta-stats">
-                            <div class="cta-stat">
-                                <div class="cta-stat-number">5,000+</div>
-                                <div class="cta-stat-label">Pre-orders</div>
-                            </div>
-                            <div class="cta-stat">
-                                <div class="cta-stat-number">4.9★</div>
-                                <div class="cta-stat-label">Early Reviews</div>
-                            </div>
-                            <div class="cta-stat">
-                                <div class="cta-stat-number">$0</div>
-                                <div class="cta-stat-label">Monthly Fees</div>
-                            </div>
                         </div>
-                    </div>
                     
-                    <!-- Image -->
                     <div class="flex justify-center">
                         <div class="relative">
                             <div class="cta-image-bg"></div>
-                            <img src="https://images.unsplash.com/photo-1684057928849-ff793c0d5ab9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxtaW5pbWFsaXN0JTIwc2VydmVyJTIwZGV2aWNlfGVufDF8fHx8MTc1OTM5MDY0Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
+                            <img src="assets/Aegis in home office.png" 
                                  alt="Aegis device - your personal digital citadel" 
                                  class="cta-img">
                         </div>
