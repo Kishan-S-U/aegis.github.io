@@ -1,15 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis - Own Your Digital Life</title>
+    <style>
+        /* CSS Variables matching the Tailwind V4 globals.css */
+        :root {
+            --font-size: 16px;
+            --background: #f8f9fa;
+            --foreground: #1e2a4a;
+            --card: #ffffff;
+            --card-foreground: #1e2a4a;
+            --popover: #ffffff;
+            --popover-foreground: #1e2a4a;
+            --primary: #1e2a4a;
+            --primary-foreground: #f8f9fa;
+            --secondary: #e9ecef;
+            --secondary-foreground: #1e2a4a;
+            --muted: #f1f3f4;
+            --muted-foreground: #6c757d;
+            --accent: #0066ff;
+            --accent-foreground: #ffffff;
+            --destructive: #d4183d;
+            --destructive-foreground: #ffffff;
+            --border: rgba(30, 42, 74, 0.15);
+            --input: transparent;
+            --input-background: #ffffff;
+            --switch-background: #cbced4;
+            --font-weight-medium: 500;
+            --font-weight-normal: 400;
+            --ring: #0066ff;
+            --radius: 0.625rem;
+            
+            /* Text sizes matching Tailwind */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            --text-5xl: 3rem;
+            --text-6xl: 3.75rem;
+        }
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>One-Page Website Design</title>
-    </head>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <body>
-      <div id="root"></div>
-      <script type="module" src="/aegis.github.io/src/main.tsx"></script>
-    </body>
-  </html>
-  
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            font-size: var(--text-base);
+            font-weight: var(--font-weight-normal);
+        }
+
+        html {
+            font-size: var(--font-size);
+            scroll-behavior: smooth;
+        }
+
+        /* Base typography matching globals.css */
+        h1 {
+            font-size: var(--text-2xl);
+            font-weight: var(--font-weight-medium);
+            line-height: 1.5;
+        }
+
+        h2 {
+            font-size: var(--text-xl);
+            font-weight: var(--font-weight-medium);
+            line-height: 1.5;
+        }
+
+        h3 {
+            font-size: var(--text-lg);
+            font-weight: var(--font-weight-medium);
+            line-height: 1.5;
+        }
+
+        p {
+            font-size: var(--text-base);
+            font-weight: var(--font-weight-normal);
+            line-height: 1.5;
+        }
+
+        button {
+            font-size: var(--text-base);
+            font-weight: var(--font-weight-medium);
+            line-height: 1.5;
+        }
+
+        /* Scroll animations matching globals.css */
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        section.animate-fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Utility classes */
+        .min-h-screen {
+            min-height: 100vh;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .justify-end {
+            justify-content: flex-end;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .h-auto {
+            height: auto;
+        }
+
+        .max-w-7xl {
+            max-width: 80rem;
+        }
+
+        .max-w-lg {
+            max-width: 32rem;
+        }
+
+        .max-w-2xl {
+            max-width: 42rem;
+        }
+
+        .max-w-3xl {
+            max-width: 48rem;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .space-y-6 > * + * {
+            margin-top: 1.5rem;
+        }
+
+        .space-y-8 > * + * {
+            margin-top: 2rem;
+        }
+
+        .space-x-3 > * + * {
+            margin-left: 0.75rem;
+        }
+
+        .space-x-8 > * + * {
+            margin-left: 2rem;
+        }
+
+        .gap-4 {
+            gap: 1rem;
+        }
+
+        .gap-8 {
+            gap: 2rem;
+        }
+
+        .gap-12 {
+            gap: 3rem;
+        }
+
+        .mb-1 {
+            margin-bottom: 0.25rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-16 {
+            margin-bottom: 4rem;
+        }
+
+        .pt-6 {
+            padding-top: 1.5rem;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .px-8 {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .py-20 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        .p-4 {
+            padding: 1rem;
+        }
+
+        .rounded-xl {
+            border-radius: 0.75rem;
+        }
+
+        .rounded-2xl {
+            border-radius: 1rem;
+        }
+
+        .rounded-3xl {
+            border-radius: 1.5rem;
+        }
+
+        .rounded-full {
+            border-radius: 9999px;
+        }
+
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .shadow-xl {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .shadow-2xl {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .transform {
+            transform: translateZ(0);
+        }
+
+        .scale-105 {
+            transform: scale(1.05);
+        }
+
+        .scale-110 {
+            transform: scale(1.10);
+        }
+
+        .blur-xl {
+            filter: blur(24px);
+        }
+
+        .blur-2xl {
+            filter: blur(40px);
+        }
+
+        .blur-3xl {
+            filter: blur(64px);
+        }
+
+        .inset-0 {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .object-cover {
+            object-fit: cover;
+        }
+
+        .leading-relaxed {
+            line-height: 1.625;
+        }
+
+        .tracking-tight {
+            letter-spacing: -0.025em;
+        }
+
+        .text-muted-foreground {
+            color: var(--muted-foreground);
+        }
+
+        .flex-shrink-0 {
+            flex-shrink: 0;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .order-1 {
+            order: 1;
+        }
+
+        .order-2 {
+            order: 2;
+        }
+
+        /* Component-specific styles */
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(30, 42, 74, 0.05), rgba(0, 102, 255, 0.05));
+            padding: 1rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-title {
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+        }
+
+        .hero-subtitle {
+            font-size: var(--text-lg);
+            color: var(--muted-foreground);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .hero-image-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0, 102, 255, 0.2), rgba(30, 42, 74, 0.2));
+            border-radius: 1.5rem;
+            filter: blur(64px);
+            transform: scale(1.05);
+        }
+
+        .hero-img {
+            position: relative;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            width: 100%;
+            max-width: 32rem;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Button styles matching ShadCN */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            border-radius: calc(var(--radius) - 2px);
+            font-size: var(--text-base);
+            font-weight: var(--font-weight-medium);
+            transition: all 0.2s;
+            text-decoration: none;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: var(--text-lg);
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--accent-foreground);
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(0, 102, 255, 0.9);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(30, 42, 74, 0.2);
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(30, 42, 74, 0.05);
+        }
+
+        .btn-outline-light {
+            border: 1px solid rgba(248, 249, 250, 0.2);
+            background-color: transparent;
+            color: var(--primary-foreground);
+        }
+
+        .btn-outline-light:hover {
+            background-color: rgba(248, 249, 250, 0.1);
+        }
+
+        /* Section styles */
+        .section {
+            padding: 5rem 1rem;
+        }
+
+        .section-bg {
+            background: linear-gradient(to right, rgba(30, 42, 74, 0.05), rgba(0, 102, 255, 0.05));
+        }
+
+        .section-primary {
+            background: linear-gradient(135deg, var(--primary), rgba(30, 42, 74, 0.8));
+            color: var(--primary-foreground);
+        }
+
+        .section-grid {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .section-text {
+            font-size: var(--text-lg);
+            color: var(--muted-foreground);
+            line-height: 1.625;
+        }
+
+        .section-text-light {
+            color: rgba(248, 249, 250, 0.8);
+        }
+
+        /* Problem section specific */
+        .problem-icons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .problem-icon {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid;
+        }
+
+        .problem-icon-1 {
+            background: #fef2f2;
+            border-color: #fecaca;
+            color: #b91c1c;
+        }
+
+        .problem-icon-2 {
+            background: #fff7ed;
+            border-color: #fed7aa;
+            color: #c2410c;
+        }
+
+        .problem-icon-3 {
+            background: #fefce8;
+            border-color: #fde047;
+            color: #a16207;
+        }
+
+        .problem-emoji {
+            font-size: var(--text-2xl);
+            margin-bottom: 0.5rem;
+        }
+
+        .problem-text {
+            font-size: var(--text-sm);
+        }
+
+        /* Solution section specific */
+        .solution-features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .solution-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid;
+        }
+
+        .solution-feature-1 {
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+            color: #15803d;
+        }
+
+        .solution-feature-2 {
+            background: #eff6ff;
+            border-color: #93c5fd;
+            color: #1d4ed8;
+        }
+
+        .solution-feature-3 {
+            background: #faf5ff;
+            border-color: #c4b5fd;
+            color: #7c3aed;
+        }
+
+        .solution-feature-4 {
+            background: #eef2ff;
+            border-color: #a5b4fc;
+            color: #4338ca;
+        }
+
+        .feature-icon {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--text-sm);
+            flex-shrink: 0;
+        }
+
+        .feature-icon-1 { background: #22c55e; }
+        .feature-icon-2 { background: #3b82f6; }
+        .feature-icon-3 { background: #8b5cf6; }
+        .feature-icon-4 { background: #6366f1; }
+
+        /* Benefits section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .benefit-icon-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-icon {
+            width: 5rem;
+            height: 5rem;
+            margin: 0 auto;
+            border-radius: 1rem;
+            padding: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1);
+        }
+
+        .benefit-icon-1 {
+            background: linear-gradient(135deg, #eab308, #f97316);
+        }
+
+        .benefit-icon-2 {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        }
+
+        .benefit-icon-3 {
+            background: linear-gradient(135deg, #ec4899, #f43f5e);
+        }
+
+        .benefit-icon-bg {
+            position: absolute;
+            inset: 0;
+            width: 5rem;
+            height: 5rem;
+            margin: 0 auto;
+            border-radius: 1rem;
+            opacity: 0.2;
+            filter: blur(24px);
+            transition: opacity 0.3s;
+        }
+
+        .benefit-card:hover .benefit-icon-bg {
+            opacity: 0.4;
+        }
+
+        .benefit-icon-bg-1 {
+            background: linear-gradient(135deg, #eab308, #f97316);
+        }
+
+        .benefit-icon-bg-2 {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        }
+
+        .benefit-icon-bg-3 {
+            background: linear-gradient(135deg, #ec4899, #f43f5e);
+        }
+
+        .benefit-title {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+
+        .benefit-card:hover .benefit-title {
+            color: var(--accent);
+        }
+
+        .benefit-description {
+            color: var(--muted-foreground);
+            line-height: 1.625;
+        }
+
+        /* CTA Section */
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cta-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .cta-stat {
+            text-align: center;
+        }
+
+        .cta-stat-number {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .cta-stat-label {
+            font-size: var(--text-sm);
+            color: rgba(248, 249, 250, 0.6);
+        }
+
+        .cta-image-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0, 102, 255, 0.3), rgba(255, 255, 255, 0.2));
+            border-radius: 1.5rem;
+            filter: blur(64px);
+            transform: scale(1.05);
+        }
+
+        .cta-img {
+            position: relative;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            width: 100%;
+            max-width: 32rem;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Responsive design */
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+
+            .hero-title {
+                font-size: var(--text-5xl);
+            }
+
+            .section-title {
+                font-size: var(--text-4xl);
+            }
+
+            .hero-subtitle {
+                font-size: var(--text-xl);
+            }
+
+            .cta-buttons {
+                flex-direction: row;
+            }
+
+            .problem-icons {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .solution-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 4rem;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .hero-image {
+                order: 2;
+                justify-content: flex-end;
+            }
+
+            .hero-title {
+                font-size: var(--text-6xl);
+            }
+
+            .section-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 4rem;
+            }
+
+            .section-title {
+                font-size: var(--text-5xl);
+            }
+
+            .hero-section {
+                padding: 1rem 1.5rem 2rem;
+            }
+
+            .px-lg-8 {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        /* Icons for benefits section */
+        .icon-zap::before {
+            content: "⚡";
+        }
+
+        .icon-shield::before {
+            content: "🛡️";
+        }
+
+        .icon-heart::before {
+            content: "💖";
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="hero-grid">
+                    <!-- Text Content -->
+                    <div class="hero-content order-2">
+                        <div class="space-y-8">
+                            <div class="space-y-6">
+                                <h1 class="hero-title tracking-tight">
+                                    Own Your Digital Life.
+                                </h1>
+                                <p class="hero-subtitle max-w-2xl">
+                                    End the chaos of scattered files, endless subscriptions, and privacy worries with Aegis.
+                                </p>
+                            </div>
+                            
+                            <div class="hero-buttons">
+                                <a href="#cta" class="btn btn-lg btn-primary">
+                                    Join the Revolution
+                                </a>
+                                <a href="#learn-more" class="btn btn-lg btn-outline">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hero Image -->
+                    <div class="hero-image order-1 flex justify-center">
+                        <div class="relative">
+                            <div class="hero-image-bg"></div>
+                            <img src="https://images.unsplash.com/photo-1758598306174-78795a972fe1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0ZWNoJTIwZGV2aWNlJTIwaG9tZSUyMGxpdmluZyUyMHJvb218ZW58MXx8fHwxNzU5MzkwNjQxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
+                                 alt="Aegis personal digital server in modern living space" 
+                                 class="hero-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section class="section">
+            <div class="max-w-7xl mx-auto">
+                <div class="section-grid">
+                    <!-- Image -->
+                    <div class="flex justify-center">
+                        <div class="relative">
+                            <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(239, 68, 68, 0.1), rgba(251, 146, 60, 0.1)); border-radius: 1.5rem; filter: blur(40px); transform: scale(1.1);"></div>
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwY2hhb3MlMjBzY2F0dGVyZWQlMjBkYXRhfGVufDF8fHx8MTc1OTM5MDY0MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
+                                 alt="Digital chaos and fragmented data visualization" 
+                                 class="relative rounded-3xl shadow-xl w-full max-w-lg h-auto object-cover">
+                        </div>
+                    </div>
+                    
+                    <!-- Text Content -->
+                    <div class="space-y-6">
+                        <h2 class="section-title">
+                            The Problem: Our Digital Lives are a Mess.
+                        </h2>
+                        <p class="section-text leading-relaxed">
+                            Your photos are scattered across multiple cloud services. Your files live in different silos. 
+                            Your smart home devices don't talk to each other. And you're paying monthly fees to companies 
+                            that profit from your data while leaving you vulnerable to breaches and privacy violations.
+                        </p>
+                        
+                        <div class="problem-icons">
+                            <div class="problem-icon problem-icon-1">
+                                <div class="problem-emoji">📱</div>
+                                <p class="problem-text">Multiple Apps</p>
+                            </div>
+                            <div class="problem-icon problem-icon-2">
+                                <div class="problem-emoji">💸</div>
+                                <p class="problem-text">Monthly Fees</p>
+                            </div>
+                            <div class="problem-icon problem-icon-3">
+                                <div class="problem-emoji">🔓</div>
+                                <p class="problem-text">Privacy Risks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section class="section section-bg">
+            <div class="max-w-7xl mx-auto">
+                <div class="section-grid">
+                    <!-- Text Content -->
+                    <div class="space-y-6">
+                        <h2 class="section-title">
+                            The Solution: A Single, Unified Home.
+                        </h2>
+                        <p class="section-text leading-relaxed">
+                            Aegis is your personal digital citadel. One beautiful device that centralizes all your photos, 
+                            files, smart home controls, and digital life. No more scattered subscriptions. No more privacy 
+                            concerns. Just complete control over your digital world.
+                        </p>
+                        
+                        <div class="solution-features">
+                            <div class="solution-feature solution-feature-1">
+                                <div class="feature-icon feature-icon-1">✓</div>
+                                <p>Centralized Storage</p>
+                            </div>
+                            <div class="solution-feature solution-feature-2">
+                                <div class="feature-icon feature-icon-2">✓</div>
+                                <p>Smart Home Hub</p>
+                            </div>
+                            <div class="solution-feature solution-feature-3">
+                                <div class="feature-icon feature-icon-3">✓</div>
+                                <p>Privacy First</p>
+                            </div>
+                            <div class="solution-feature solution-feature-4">
+                                <div class="feature-icon feature-icon-4">✓</div>
+                                <p>No Monthly Fees</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Image -->
+                    <div class="flex justify-center">
+                        <div class="relative">
+                            <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(0, 102, 255, 0.2), rgba(30, 42, 74, 0.2)); border-radius: 1.5rem; filter: blur(40px); transform: scale(1.1);"></div>
+                            <img src="https://images.unsplash.com/photo-1689596312367-39a4461504c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbml6ZWQlMjBjbGVhbiUyMHRlY2hub2xvZ3klMjBzZXR1cHxlbnwxfHx8fDE3NTkzOTA2NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
+                                 alt="Clean, organized technology setup" 
+                                 class="relative rounded-3xl shadow-xl w-full max-w-lg h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="section">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="section-title mb-6">
+                        Why Aegis?
+                    </h2>
+                    <p class="section-text max-w-3xl mx-auto">
+                        Discover the three pillars that make Aegis the ultimate solution for your digital life.
+                    </p>
+                </div>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon-container">
+                            <div class="benefit-icon benefit-icon-1 icon-zap"></div>
+                            <div class="benefit-icon-bg benefit-icon-bg-1"></div>
+                        </div>
+                        <h3 class="benefit-title">Freedom</h3>
+                        <p class="benefit-description leading-relaxed">
+                            Finally have unlimited storage for all your photos and videos.
+                        </p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon-container">
+                            <div class="benefit-icon benefit-icon-2 icon-shield"></div>
+                            <div class="benefit-icon-bg benefit-icon-bg-2"></div>
+                        </div>
+                        <h3 class="benefit-title">Control</h3>
+                        <p class="benefit-description leading-relaxed">
+                            Your smart home works for you, and your data stays with you, always.
+                        </p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon-container">
+                            <div class="benefit-icon benefit-icon-3 icon-heart"></div>
+                            <div class="benefit-icon-bg benefit-icon-bg-3"></div>
+                        </div>
+                        <h3 class="benefit-title">Peace of Mind</h3>
+                        <p class="benefit-description leading-relaxed">
+                            Know your memories are safe with automatic, encrypted backups.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="cta" class="section section-primary">
+            <div class="max-w-7xl mx-auto">
+                <div class="section-grid">
+                    <!-- Text Content -->
+                    <div class="space-y-8">
+                        <div class="space-y-6">
+                            <h2 class="section-title">
+                                Stop Paying to Rent Your Data.
+                            </h2>
+                            <p class="section-text section-text-light leading-relaxed">
+                                Join thousands of people who have taken control of their digital lives. 
+                                Own your data, protect your privacy, and never pay another cloud subscription again.
+                            </p>
+                        </div>
+                        
+                        <div class="cta-buttons">
+                            <a href="#signup" class="btn btn-lg btn-primary shadow-lg">
+                                Get Early Access
+                            </a>
+                            <a href="#demo" class="btn btn-lg btn-outline-light">
+                                Watch Demo
+                            </a>
+                        </div>
+                        
+                        <div class="cta-stats">
+                            <div class="cta-stat">
+                                <div class="cta-stat-number">5,000+</div>
+                                <div class="cta-stat-label">Pre-orders</div>
+                            </div>
+                            <div class="cta-stat">
+                                <div class="cta-stat-number">4.9★</div>
+                                <div class="cta-stat-label">Early Reviews</div>
+                            </div>
+                            <div class="cta-stat">
+                                <div class="cta-stat-number">$0</div>
+                                <div class="cta-stat-label">Monthly Fees</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Image -->
+                    <div class="flex justify-center">
+                        <div class="relative">
+                            <div class="cta-image-bg"></div>
+                            <img src="https://images.unsplash.com/photo-1684057928849-ff793c0d5ab9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxtaW5pbWFsaXN0JTIwc2VydmVyJTIwZGV2aWNlfGVufDF8fHx8MTc1OTM5MDY0Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
+                                 alt="Aegis device - your personal digital citadel" 
+                                 class="cta-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Scroll animation functionality matching the React useEffect
+        document.addEventListener('DOMContentLoaded', function() {
+            const handleScroll = () => {
+                const elements = document.querySelectorAll('section');
+                elements.forEach((element) => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('animate-fade-in');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Run on initial load
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
